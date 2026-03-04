@@ -8,7 +8,9 @@
 
 ---
 
-### [📺 Watch the Product Demo](INSERT_VIDEO_LINK_HERE)
+### 📺 Product Demo
+[Insert Video Link Here - e.g., YouTube or Vimeo]
+*(Optional: Add a brief 1-2 minute walkthrough of the platform here)*
 
 ---
 
@@ -59,8 +61,12 @@ SINAPSE follows a modern decoupled architecture designed for scalability and mai
 ### 1. Permanent Semantic Memory (RAG)
 Unlike transient chatbots, SINAPSE builds a permanent database of legal knowledge using **Vector Search**. It identifies deep context across thousands of pages based on meaning, not just keywords.
 
+> **Visual Demonstration:** > ![Insert GIF or Image showing real-time PDF vectorization/upload process here]
+
 ### 2. Automated Legal Metadata Extraction
 The system parses raw PDF text and extracts structured JSON objects, allowing for statistical analysis of legal cases, such as identifying parties, case values, and legal foundations automatically.
+
+> **Visual Demonstration:** > ![Insert Screenshot of the Metadata Dashboard or JSON Extraction result here]
 
 ### 3. Hard Grounding & Anti-Hallucination
 To ensure legal reliability, every AI response includes **direct citations**. Users can verify the exact source and page where the information originated by clicking the reference.
