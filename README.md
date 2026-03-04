@@ -1,4 +1,4 @@
-# SINAPSE (System of Intelligence and Process Analysis with Structured Semantics) ⚖️🤖
+# SINAPSE: Intelligence System and Legal Process Analysis with Structured Semantics ⚖️🤖
 
 > **Academic Disclaimer:** This project was developed as my Final Capstone Project (TCC) for my Systems Analysis and Development degree at FATEC. It represents the foundation of a LegalTech SaaS that I am continuously evolving.
 
@@ -8,43 +8,66 @@
 
 ---
 
-### [📺 Watch the Product Demo](LINK_DO_VIDEO_AQUI)
+### [📺 Watch the Product Demo](INSERT_VIDEO_LINK_HERE)
+
+---
+
+### 💡 Project Overview
+
+**The Problem:** Legal professionals deal with thousands of pages of unorganized PDFs. Finding specific precedents or extracting structured data from lawsuits is slow, manual, and prone to oversight. Standard AI models often "hallucinate" legal facts without proper context.
+
+**The Solution:** **SINAPSE**. A B2B SaaS platform designed to transform static legal PDFs into a structured, searchable, and permanent intelligence engine. By utilizing RAG (Retrieval-Augmented Generation), the system grounds AI responses in real case files, providing accurate citations and permanent semantic memory.
+
+
+
+**Technical Challenges:**
+- **Semantic Retrieval at Scale:** Implementing **pgvector** in PostgreSQL to handle high-dimensional embeddings for fast and accurate context retrieval across massive document sets.
+- **Anti-Hallucination Framework:** Developing "Hard Grounding" logic where the AI is strictly prohibited from answering without direct citations from the uploaded PDFs.
+- **Metadata Extraction:** Engineering complex prompts and parsing logic to transform raw OCR text into structured JSON objects for high-level statistical legal analysis.
+
+---
+
+## 📌 Table of Contents
+1. [Architectural Overview](#-architectural-overview)
+2. [Key Technical Features](#-key-technical-features)
+3. [Technology Stack](#-technology-stack)
+4. [Project Structure](#-project-structure)
+5. [Roadmap & Future Evolution](#-roadmap--future-evolution-the-next-steps)
+6. [Installation & Setup](#-installation--setup)
+7. [Contact](#-contact)
 
 ---
 
 ## 🏗️ Architectural Overview
+SINAPSE follows a modern decoupled architecture designed for scalability and maintainability.
 
-SINAPSE is a B2B SaaS platform designed to transform static legal PDFs into a structured, searchable, and permanent intelligence engine.
+
 
 ### 💻 Frontend: Component-Based Architecture
 - **Stack:** React + Vite + TypeScript (powered by **Bun**).
 - **Design:** Modern UI with **Tailwind CSS & Shadcn/UI**.
-- **Logic:** Business logic is decoupled into Custom Hooks for better maintainability.
+- **Logic:** Business logic is decoupled into Custom Hooks for better maintainability and testability.
 
 ### ⚙️ Backend: Layered Pattern (Router-Service-Repository)
 - **Stack:** **FastAPI (Python)** + LangChain.
-- **Layers:** Clear separation between API routes, AI service logic, and database repositories using SQLAlchemy.
+- **Layers:** Clear separation between API routes, AI service logic (LangChain chains), and database repositories using SQLAlchemy.
 
 ---
 
 ## 🚀 Key Technical Features
 
 ### 1. Permanent Semantic Memory (RAG)
-![Vetorização em tempo real](LINK_DO_GIF_UPLOAD)
-
-Unlike transient chatbots, SINAPSE builds a permanent database of legal knowledge using **Vector Search** (pgvector). It finds deep context in thousands of pages, not just keyword matches.
+Unlike transient chatbots, SINAPSE builds a permanent database of legal knowledge using **Vector Search**. It identifies deep context across thousands of pages based on meaning, not just keywords.
 
 ### 2. Automated Legal Metadata Extraction
-![Dashboard de Metadados](LINK_DA_FOTO_DASHBOARD)
-
-The system parses raw PDF text and extracts structured JSON objects, allowing for statistical analysis of legal cases.
+The system parses raw PDF text and extracts structured JSON objects, allowing for statistical analysis of legal cases, such as identifying parties, case values, and legal foundations automatically.
 
 ### 3. Hard Grounding & Anti-Hallucination
-To ensure legal reliability, every AI response includes **direct citations**. Users can click a source and verify the exact page where the information originated.
+To ensure legal reliability, every AI response includes **direct citations**. Users can verify the exact source and page where the information originated by clicking the reference.
 
 ---
 
-## 🛠️ Current Technology Stack
+## 🛠️ Technology Stack
 - **Frontend:** React, TypeScript, Bun, Tailwind CSS.
 - **Backend:** Python, FastAPI, LangChain, PyMuPDF, SQLAlchemy.
 - **Database:** **Neon.tech** (PostgreSQL Serverless + `pgvector`).
@@ -52,17 +75,39 @@ To ensure legal reliability, every AI response includes **direct citations**. Us
 
 ---
 
-## 🗺️ Roadmap & Future Evolution (The Next Steps)
+## 📂 Project Structure
+```text
+sinapse-platform/
+├── apps/
+│   ├── web/          # React Frontend (Vite + Bun)
+│   └── api/          # FastAPI Backend (Python)
+├── packages/
+│   ├── database/     # SQLAlchemy Models & Migrations
+│   └── ai-engine/    # LangChain RAG Logic
+└── docs/             # Technical Documentation & TCC Paper
 
-This project is in continuous development. My goal is to evolve this academic MVP into a production-ready enterprise solution.
-
-- [ ] **Cloud Migration:** Transitioning storage and compute to **AWS** (S3 for documents and Lambda/ECS for scaling).
-- [ ] **Infrastructure as Code:** Implementing Terraform for environment management.
-- [ ] **Advanced Security:** Integration of AWS Cognito for enterprise-grade authentication.
-- [ ] **Performance:** Implementing Redis caching for frequent semantic queries.
+```
 
 ---
 
-## ✉️ Contact & Links
-**Marcelo Abreu** - Junior Data Scientist | ADS Student
-[LinkedIn](https://www.linkedin.com/in/marcelo-manara) | [GitHub](https://github.com/ManaraMarcelo) | [Portifolio](https://portifolio-peach-beta.vercel.app/)
+## 🗺️ Roadmap & Future Evolution (The Next Steps)
+
+* [ ] **Cloud Migration:** Transitioning storage to **AWS S3** and compute to **AWS Lambda/ECS**.
+* [ ] **Infrastructure as Code:** Implementing **Terraform** for environment management.
+* [ ] **Advanced Security:** Integration of **AWS Cognito** for enterprise-grade authentication.
+* [ ] **Performance:** Implementing **Redis** caching for frequent semantic queries.
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the Repo:** `git clone https://github.com/ManaraMarcelo/sinapse-legaltech-rag-platform.git`
+2. **Backend Setup:** `cd apps/api && pip install -r requirements.txt`
+3. **Frontend Setup:** `cd apps/web && bun install && bun dev`
+4. **Environment:** Setup your `.env` with `OPENAI_API_KEY` and `DATABASE_URL`.
+
+---
+
+## 🔗 Contact
+
+**Marcelo Manara** [LinkedIn](https://www.linkedin.com/in/marcelo-manara) | [Portfolio](https://portifolio-peach-beta.vercel.app/)
